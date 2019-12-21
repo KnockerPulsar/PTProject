@@ -13,6 +13,32 @@ Player::Player(Cell * pCell, int playerNum) : stepCount(0), wallet(100), playerN
 
 // ====== Setters and Getters ======
 
+void Player::setcardsevenflag(bool s)
+{
+	cardsevenflag = s;
+}
+bool Player::getcardsevenflag()
+{
+	return getcardsevenflag;
+}
+void Player::setcardeightflag(bool s)
+{
+	cardeightflag = s;
+}
+bool Player::getcardeightflag()
+{
+	return cardeightflag;
+}
+
+
+
+
+
+
+
+
+
+
 void Player::SetCell(Cell * cell)
 {
 	pCell = cell;

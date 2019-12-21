@@ -16,16 +16,23 @@ class Player
 	int turnCount;         // a counter that starts with 0, is incremented with each dice roll
 	                       // and reset again when reached 3
 	                       // it is used to indicate when to move and when to add to your wallet
+
+	bool cardsevenflag;                     //Ayman - private so that we can use it without screwing class responsbilities
+	bool cardeightflag;                     //Ayman - private so that we can use it without screwing class responsbilities
+
 	
 public:
-	bool cardsevenflag ;                     //Ayman - public so that we can use it without screwing class responsbilities
-	bool cardeightflag ;                     //Ayman - public so that we can use it without screwing class responsbilities
-	Player(Cell * pCell, int playerNum); // Constructor making any needed initializations
+		Player(Cell * pCell, int playerNum); // Constructor making any needed initializations
 
 	// ====== Setters and Getters ======
 
 	void SetCell(Cell * cell);		// A setter for the pCell
 	Cell* GetCell() const;			// A getter for the pCell
+	void setcardsevenflag(bool s);
+	bool getcardsevenflag();
+	void setcardeightflag(bool s);
+	bool getcardeightflag();
+
 
 	void SetWallet(int wallet);		// A setter for the wallet
 	int GetWallet() const;			// a getter for the wallet
