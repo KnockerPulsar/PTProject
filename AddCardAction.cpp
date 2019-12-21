@@ -59,7 +59,7 @@ void AddCardAction::ReadActionParameters()
 	cardNumber=*cardnumptr;
 
 	// 3- Read the "cardPosition" parameter (its cell position) and set its data member
-	optr->PrintMessage("Please click the card");
+	optr->PrintMessage("Please click the cell you'd like to add the card to");
 	CellPosition cardpos = inptr->GetCellClicked();
 	cardPosition = cardpos;
 

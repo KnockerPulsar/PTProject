@@ -250,7 +250,9 @@
     <ClCompile Include="CopyCardAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="PasteCardAction.cpp" />
+    <ClCompile Include="PasteCardAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -428,6 +430,8 @@
     <ClInclude Include="CopyCardAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="PasteCardAction.h" />
+    <ClInclude Include="PasteCardAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
