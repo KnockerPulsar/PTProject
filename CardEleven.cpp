@@ -1,17 +1,14 @@
 #include "AddCardAction.h"
 #include "Input.h"
 #include "Output.h"
-#include "Card.h"
-#include "CardEleven.h"
+#include "CardOne.h"
+#include"Card.h"
+#include"CardEleven.h"
 #include "CellPosition.h"
-#include "Player.h" 
+#include "Player.h"
 
 using namespace std;
 
-bool CardEleven::bought=false;
-Player* CardEleven::owner=NULL;
-int CardEleven::cardprice=0;
-int CardEleven::cardfees=0;
 
 CardEleven::CardEleven(const CellPosition & pos) : Card(pos)
 {
@@ -40,13 +37,7 @@ int CardEleven :: getfees()
 	return cardfees;
 }
 
-
-void CardEleven::setbought (bool b)  
-{
-	bought = b;
-}
-
-Player* CardEleven :: getowner()
+int CardEleven :: getowner()
 {
 	return owner;
 }
@@ -55,11 +46,7 @@ void CardEleven :: ReadCardParameters( Grid * pGrid )
 {
 	Output * optr = pGrid->GetOutput();
 	Input * inptr = pGrid ->GetInput();
-	
-	if (cardprice!=0)
-	{}
-	else 
-	{
+
 	optr -> PrintMessage("Please enter card price");
 	int priceofcard = inptr -> GetInteger(optr);
 	setprice(priceofcard);
@@ -67,32 +54,36 @@ void CardEleven :: ReadCardParameters( Grid * pGrid )
 	optr -> PrintMessage("Now, enter card fees");
 	int feesofcard =inptr -> GetInteger(optr);
 	setfees(feesofcard);
-	}
 
-
-
+	optr->PrintMessage("Card 11 is now set!");
 }
 
 void CardEleven :: Apply(Grid* pGrid, Player* pPlayer)
 {
+
 	Output * optr = pGrid->GetOutput();
 	Input * inptr = pGrid ->GetInput();
 
 	if (UI.InterfaceMode==MODE_PLAY)
 	{
-		if ( bought == false && pPlayer->GetWallet() >= cardprice )
+
+		if ( isbought() == false )
 		{
-			optr->PrintMessage("You have reached a station. Do you want to buy it ? (y/n) ");
+			optr->PrintMessage("Do you want to buy this card? (y/n) ");
 			string choice = inptr->GetSrting(optr);
 			if ( choice == "Y" || choice == "y" )
 			{
 				if (pPlayer->GetWallet() >= cardprice)
 				{
 					optr->PrintMessage("Card is now bought!");
-				
 					setbought(true);
+					pPlayer->SetWallet(pPlayer->GetWallet() - cardprice); //Deducts the cards price from the player.
 					setowner(pPlayer);
-					owner->SetWallet(owner->GetWallet() - cardprice); //Deducts the cards price from the player.
+
+				}
+				else		
+				{
+					optr->PrintMessage("Not enough funds");
 				}
 			}
 
@@ -100,12 +91,9 @@ void CardEleven :: Apply(Grid* pGrid, Player* pPlayer)
 		}
 		else
 		{
-			if ( pPlayer != owner )
+			if ( pPlayer->GetPlayerNumber() != owner )
 			{
-				optr->PrintMessage("You have reached a bought station. Click to continue..");
-				inptr->GetCellClicked();
 				pPlayer->SetWallet(pPlayer->GetWallet() - cardfees);
-				owner->SetWallet(owner->GetWallet() + cardfees);
 			}
 
 			else {} //If the card is bought and the owner is currently in it, do nothing.
@@ -114,11 +102,17 @@ void CardEleven :: Apply(Grid* pGrid, Player* pPlayer)
 	}
 	else if (UI.InterfaceMode == MODE_DESIGN )
 	{
-			ReadCardParameters(pGrid);
+		ReadCardParameters(pGrid);
 	}
+
 }
 
 void CardEleven::setowner(Player* pPlayer)
 {
-	owner = pPlayer;
+	owner = pPlayer->GetPlayerNumber();
+}
+
+void CardEleven::setbought(bool b)
+{
+	bought = b;
 }

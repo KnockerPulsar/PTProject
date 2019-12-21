@@ -29,21 +29,10 @@ void CardTwo::ReadCardParameters(Grid * pGrid)
 }
 
 
-void CardTwo::Apply(Grid* pGrid, Player* pPlayer) //Edited - Tarek, added the if condition so that Edit card works.
+void CardTwo::Apply(Grid* pGrid, Player* pPlayer)
 {
-	Output * optr = pGrid->GetOutput();
-	Input * inptr = pGrid ->GetInput();
-
-	if (UI.InterfaceMode==MODE_PLAY)
-	{
-		// 1- Call Apply() of the base class Card to print the message that you reached this card number
-		Card::Apply(pGrid,pPlayer);
-		// 2- Increment the wallet of pPlayer by the walletAmount data member of CardOne
-		pPlayer->SetWallet(pPlayer->GetWallet()+walletAmount);
-	}
-
-	else if (UI.InterfaceMode == MODE_DESIGN )
-	{
-		ReadCardParameters(pGrid);
-	}
+	// 1- Call Apply() of the base class Card to print the message that you reached this card number
+	Card::Apply(pGrid,pPlayer);
+	// 2- Increment the wallet of pPlayer by the walletAmount data member of CardOne
+	pPlayer->SetWallet(pPlayer->GetWallet()+walletAmount);
 }

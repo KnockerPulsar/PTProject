@@ -28,7 +28,8 @@ void AddLadderAction::ReadActionParameters()
 	pOut->PrintMessage("New Ladder: Click on its End Cell ...");
 	endPos = pIn->GetCellClicked(); 
 	if (endPos.HCell() == startPos.HCell() && endPos.VCell() < startPos.VCell())        // done - Ayman
-	{}
+	{
+	}
 	else
 	{
 		endPos.SetHCell(-1);

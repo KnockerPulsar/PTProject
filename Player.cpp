@@ -1,4 +1,5 @@
 #include "Player.h"
+
 #include "GameObject.h"
 
 Player::Player(Cell * pCell, int playerNum) : stepCount(0), wallet(100), playerNum(playerNum)
@@ -69,7 +70,8 @@ void Player::Move(Grid * pGrid, int diceNumber)
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 
 
-	// == Here are some guideline steps (numbered below) to implement this function 
+	// == Here are some guideline steps (numbered below) to implement this function ==
+
 
 	// 1- Increment the turnCount because calling Move() means that the player has rolled the dice once
 	turnCount++;                                                                                                 //Jimmy - Increment turnCount everytime Move is executed//
