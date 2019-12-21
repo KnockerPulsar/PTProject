@@ -22,6 +22,12 @@ void CardNine::Apply(Grid* pGrid, Player* pPlayer)
 	pPlayer = pGrid->GetCurrentPlayer();
 	CellPosition Destination = Destination.GetCellPositionFromNum(CellNum);  //Jimmy - Create a CellPosition and set it to the CellPosition
 	pGrid->UpdatePlayerCell(pPlayer,Destination);                            //corresponding to the CellNumber that the player inputed//
+	Cell* pCell = pPlayer->GetCell();
+	GameObject* PGO = pCell->GetGameObject();
+	if (PGO != NULL)                                                         //Jimmy - Validation to check if the player's new cell has a game object 
+	{                                                                        //and applies it if it does have a game object//
+		PGO->Apply(pGrid, pPlayer);
+	}
 	}
 	if (UI.InterfaceMode == MODE_DESIGN )
 	{
