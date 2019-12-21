@@ -34,6 +34,7 @@ void PasteCardAction::ReadActionParameters()
 }
 void PasteCardAction::Execute()
 {
+	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
 	pastedcard = pGrid->GetClipboard();

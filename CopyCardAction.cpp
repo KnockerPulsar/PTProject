@@ -20,6 +20,7 @@ void CopyCardAction::ReadActionParameters()
 }
 void CopyCardAction::Execute()
 {
+	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
 	copiedcard = dynamic_cast<Card*>(pGrid->GetCellObject(CardPosition));
 	pGrid->SetClipboard(copiedcard);
