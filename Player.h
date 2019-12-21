@@ -1,5 +1,5 @@
 #pragma once
-//#include "CardEight.h"
+
 #include "Grid.h"
 #include "Cell.h"
 
@@ -18,7 +18,8 @@ class Player
 	                       // it is used to indicate when to move and when to add to your wallet
 	
 public:
-
+	bool cardsevenflag = false;                     //Ayman - public so that we can use it without screwing class responsbilities
+	bool cardeightflag = false;                     //Ayman - public so that we can use it without screwing class responsbilities
 	Player(Cell * pCell, int playerNum); // Constructor making any needed initializations
 
 	// ====== Setters and Getters ======

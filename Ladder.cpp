@@ -48,6 +48,8 @@ void Save(ofstream &OutFile , ObjectType LadderType , Ladder * pLadder)
 	
 }
 
+
+
 Ladder::~Ladder()
 {
 }

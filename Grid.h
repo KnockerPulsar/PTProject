@@ -69,7 +69,7 @@ public:
 	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	                                    
 	Ladder * GetNextLadder(const CellPosition & position);  // Gets a Pointer to the first Ladder after the passed "position"
 	Snake * GetNextSnake(const CellPosition & position);    // Gets a Pointer to the first Snake after the passed "position"
-	GameObject* GetCellObject (const CellPosition& position); //Added - Tarek, needed to invoke ReadCardAction in EditCardAction
+	GameObject* GetCellObject (const CellPosition& position); //Added - Tarek, Needed to invoke ReadCardAction in EditCardAction
 
 	// ========= User Interface Functions =========
 
@@ -81,6 +81,8 @@ public:
 
 	void PrintErrorMessage(string msg); // Prints an error message on statusbar, Waits for mouse click then clears statusbar
 									    // We added this function once here because it is used many times by other classes
+
+
 
 	~Grid(); // A destructor for any needed deallcations
 };

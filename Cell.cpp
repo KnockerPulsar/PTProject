@@ -30,9 +30,9 @@ CellPosition Cell::GetCellPosition() const
 
 bool Cell::SetGameObject(GameObject * pGObj)
 {
-	if (pGObj == NULL)
+	if (pGObj == NULL)          //Means i want to delete a game object//
 	{
-		pGameObject = NULL;
+		pGameObject = NULL;     //Set the gameObject Pointer in the cell to Null.. i.e. Delete the game object//
 		return true;
 	}
 	else if (pGameObject != NULL) // already contains one

@@ -17,13 +17,13 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -134,12 +134,14 @@
     <ClCompile Include="AddSnakeAction.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Card.cpp" />
+    <ClCompile Include="CardEight.cpp" />
     <ClCompile Include="CardEleven.cpp" />
     <ClCompile Include="CardFive.cpp" />
     <ClCompile Include="CardFour.cpp" />
     <ClCompile Include="CardFourteen.cpp" />
     <ClCompile Include="CardNine.cpp" />
     <ClCompile Include="CardOne.cpp" />
+    <ClCompile Include="CardSeven.cpp" />
     <ClCompile Include="CardSix.cpp" />
     <ClCompile Include="CardTen.cpp" />
     <ClCompile Include="CardThirteen.cpp" />
@@ -184,6 +186,7 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant1.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant2.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
+    <ClCompile Include="CopyCardAction.cpp" />
     <ClCompile Include="DeleteGameObjectAction.cpp" />
     <ClCompile Include="EditCardAction.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -193,6 +196,7 @@
     <ClCompile Include="Ladder.cpp" />
     <ClCompile Include="NewGameAction.cpp" />
     <ClCompile Include="Output.cpp" />
+    <ClCompile Include="PasteCardAction.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RollDiceAction.cpp" />
@@ -207,12 +211,14 @@
     <ClInclude Include="AddSnakeAction.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Card.h" />
+    <ClInclude Include="CardEight.h" />
     <ClInclude Include="CardEleven.h" />
     <ClInclude Include="CardFive.h" />
     <ClInclude Include="CardFour.h" />
     <ClInclude Include="CardFourteen.h" />
     <ClInclude Include="CardNine.h" />
     <ClInclude Include="CardOne.h" />
+    <ClInclude Include="CardSeven.h" />
     <ClInclude Include="CardSix.h" />
     <ClInclude Include="CardTen.h" />
     <ClInclude Include="CardThirteen.h" />
@@ -241,6 +247,7 @@
     <ClInclude Include="CMUgraphicsLib\jpeg\jpegint.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jpeglib.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jversion.h" />
+    <ClInclude Include="CopyCardAction.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="DeleteGameObjectAction.h" />
     <ClInclude Include="EditCardAction.h" />
@@ -251,6 +258,7 @@
     <ClInclude Include="Ladder.h" />
     <ClInclude Include="NewGameAction.h" />
     <ClInclude Include="Output.h" />
+    <ClInclude Include="PasteCardAction.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RollDiceAction.h" />
     <ClInclude Include="Snake.h" />
