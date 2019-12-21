@@ -9,6 +9,6 @@ void CardSeven::Apply(Grid* pGrid, Player* pPlayer)
 	Input* pIn = pGrid->GetInput();
 	pOut->PrintMessage("you have reached card seven, you can roll dice again, click to continue");
 	pIn->GetCellClicked();
-	pPlayer->cardsevenflag = true;                                          //flagging to enable card7 effect
+	pPlayer->setcardsevenflag(true);                                          //flagging to enable card7 effect
 	pOut->ClearStatusBar();
 }

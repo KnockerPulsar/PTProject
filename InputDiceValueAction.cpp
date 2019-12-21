@@ -28,18 +28,18 @@ void InputDiceValueAction::Execute()
 		{
 			Player* PP;
 			PP = PGRID->GetCurrentPlayer();
-			if (PP->cardeightflag == true)                            //Ayman - if condition to check card8 effect
+			if (PP->getcardeightflag() == true)                            //Ayman - if condition to check card8 effect
 			{
-				PP->cardeightflag = false;                            //Ayman - resetting card8 flag again
+				PP->setcardeightflag(false);                            //Ayman - resetting card8 flag again
 			}
 			else
 			{
 
 				PP->Move(PGRID, diceNumber);               //Jimmy - Moving the players by the value of the diceNumber that they have rolled//
 			}
-			if (PP->cardsevenflag == true)                            //Ayman - if condition to check card7 effect
+			if (PP->getcardsevenflag() == true)                            //Ayman - if condition to check card7 effect
 			{
-				PP->cardsevenflag = false;                            //Ayman - resetting card7 flag again
+				PP->setcardsevenflag(false);                            //Ayman - resetting card7 flag again
 			}
 			else
 			{

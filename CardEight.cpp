@@ -10,6 +10,6 @@ void CardEight::Apply(Grid* pGrid, Player* pPlayer)
 	Input* pIn = pGrid->GetInput();
 	pOut->PrintMessage("you have reached card eight, you can't play next turn, click to continue");
 	pIn->GetCellClicked();
-	pPlayer->cardeightflag = true;                                     //the flag so that the player cannot move next turn
+	pPlayer->setcardeightflag(true);                                     //the flag so that the player cannot move next turn
 	pOut->ClearStatusBar();                                            	// 3- Clear the status bar
 }
