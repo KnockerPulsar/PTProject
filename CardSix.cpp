@@ -19,6 +19,12 @@ void CardSix::Apply(Grid * pGrid,Player * pPlayer)
 	CellPosition Position = PlayerCell->GetCellPosition();           //Jimmy - CellPosition that points to Player CellPosition//
 	Position.AddCellNum(-(pPlayer->GetJustRolledDiceNum()));         //Jimmy - Update the CellPosition with the negative value of the JustRolledDiceNum - So, Player moves backward the same number of steps that he just rolled//
 	pGrid->UpdatePlayerCell(pPlayer,Position);                       //Jimmy - Update PlayerCell with the Updated CellPosition//
+	Cell* pCell = pPlayer->GetCell();
+	GameObject* PGO = pCell->GetGameObject();
+	if (PGO != NULL)                                                         //Jimmy - Validation to check if the player's new cell has a game object 
+	{                                                                        //and applies it if it does have a game object//
+		PGO->Apply(pGrid, pPlayer);
+	}
 }
 
 CardSix::~CardSix()
