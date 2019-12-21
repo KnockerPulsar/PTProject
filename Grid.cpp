@@ -174,6 +174,7 @@ GameObject* Grid::GetCellObject(const CellPosition &ClickedCell)
 	Cell* CellClicked = CellList[ClickedCell.VCell()][ClickedCell.HCell()];
 	return CellClicked->GetGameObject();
 }
+
 // ========= User Interface Functions =========
 
 
@@ -232,6 +233,7 @@ void Grid::PrintErrorMessage(string msg)
 	pIn->GetPointClicked(x, y);
 	pOut->ClearStatusBar();
 }
+
 
 
 Grid::~Grid()

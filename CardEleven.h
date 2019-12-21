@@ -8,10 +8,10 @@ class CellPosition;
 class CardEleven :
 	public Card
 {
-	static int cardprice;
-	static int cardfees;
+	int cardprice;
+	int cardfees;
 	static bool bought;
-	static Player* owner;
+	int owner;
 public:
 	CardEleven();
 	CardEleven(const CellPosition &);
@@ -21,14 +21,15 @@ public:
 	virtual void ReadCardParameters(Grid * pGrid);
 	virtual void Apply(Grid* pGrid, Player* pPlayer);
 
-	static void setprice( int cprice ); //Don't need a getter for now, add if needed.
+	void setprice( int cprice ); //Don't need a getter for now, add if needed.
 
-	static void setfees( int f);
-	static int getfees();
+	void setfees( int f);
+	int getfees();
 
 	static bool isbought() {return bought;} //Returns true if the card is bought, false if not.
 	static void setbought(bool);
 
-	static Player* getowner();
-	static void setowner(Player* pPlayer);
+	int getowner();
+	void setowner(Player* pPlayer);
 };
+

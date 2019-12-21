@@ -1,5 +1,6 @@
 #include "ApplicationManager.h"
-
+#include "CopyCardAction.h"
+#include "PasteCardAction.h"
 #include "Grid.h"
 #include "AddLadderAction.h"
 #include "AddSnakeAction.h"
@@ -73,15 +74,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new AddCardAction(this);
 		break;
 
-	case COPY_CARD:
-		//Do nothing, for now 
-		break;
-
 	case CUT_CARD:
-		//Do nothing, for now
-		break;
-
-	case PASTE_CARD:
 		//Do nothing, for now
 		break;
 
@@ -118,7 +111,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 
+	case COPY_CARD:
+		pAct = new CopyCardAction(this);
+		break;
 
+	case PASTE_CARD:
+		pAct = new PasteCardAction(this);
+		break;
 
 	case STATUS:	// a click on the status bar ==> no action
 		return;

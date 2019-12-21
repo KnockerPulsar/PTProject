@@ -34,11 +34,26 @@ void RollDiceAction::Execute()
 
 		// 3- Get the "current" player from pGrid
 		Player * PP;
+
 		PP = PGRID->GetCurrentPlayer();
 		// 4- Move the currentPlayer using function Move of class player
-		PP->Move(PGRID,diceNumber);
+		if (PP->cardeightflag == true)                                    //Ayman - if condition to check card8 flag
+		{ 
+		     PP->cardeightflag = false;                                   //Ayman - resetting card8 flag again (if card eight -> dont move next turn)
+		}
+		else
+		{
+			PP->Move(PGRID, diceNumber);
+		}
 		// 5- Advance the current player number of pGrid
-		PGRID->AdvanceCurrentPlayer();
+		if (PP->cardsevenflag == true)                                    //Ayman - if condition to check card7 flag
+		{
+			PP->cardsevenflag = false;                                    //Ayman - resetting card7 flag again
+		}
+		else
+		{
+			PGRID->AdvanceCurrentPlayer();                                //Ayman - if card7flag is true,player can play again
+		}
 
 		// NOTE: the above guidelines are the main ones but not a complete set (You may need to add more steps).
 	}

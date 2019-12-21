@@ -10,7 +10,8 @@
 #include "CardFour.h"
 #include "CardFive.h"
 #include "CardSix.h"
-//#include "CardEight.h"
+#include "CardSeven.h"
+#include "CardEight.h"
 #include "CardNine.h"
 #include "CardTen.h"
 #include "CardEleven.h"
@@ -47,23 +48,30 @@ void AddCardAction::ReadActionParameters()
 	// 2- Read the "cardNumber" parameter and set its data member
 
 	optr->PrintMessage("Please enter the card number");
-	cardNumber = inptr->GetInteger(optr);
+	int cardnum = inptr->GetInteger(optr);
+	int* cardnumptr = new int;
+	*cardnumptr = cardnum;
+	//while ( *cardnumptr >14 || *cardnumptr <1 ) //Might need this later.
+	//{
+	//	optr->PrintMessage("Invalid card number, please enter a value between 1 and 14");
+	//	*cardnumptr = inptr->GetInteger(optr);
+	//}
+	cardNumber=*cardnumptr;
 
 	// 3- Read the "cardPosition" parameter (its cell position) and set its data member
-	optr->PrintMessage("Please click the cell you'd like to place the card in");
+	optr->PrintMessage("Please click the card");
 	CellPosition cardpos = inptr->GetCellClicked();
 	cardPosition = cardpos;
-	GameObject* pGO = pGrid->GetCellObject(cardpos);
-	if ( pGO != NULL )
-	{
-		cardNumber = -1; //If the card has an object (Ladder/Snake/Another card), sets the cardNumber to an invalid value to prevent object creation
-	}
+
+
 	// 4- Make the needed validations on the read parameters
-	if ( cardNumber > 14 &&  cardNumber < 1 )
-		cardNumber = -1;
+	if ( cardnum > 14 &&  cardnum < 1 )
+		cardnum = -1;
 
 	// 5- Clear status bar
 	optr->ClearStatusBar();
+
+	delete cardnumptr;
 }
 
 
@@ -114,14 +122,14 @@ void AddCardAction::Execute()
 
 		//================================================================//
 
-		//Need to be added by Ayman
-		/*	case 7:
+		//Need to be added by Ayman, done
+		case 7:                                                        //Ayman added this
 		pCard = new CardSeven(cardPosition);
-		break;*/
-
-		//case 8:
-		//	pCard = new CardEight(cardPosition);
-		//	break;
+		break;
+		
+		case 8:                                                        //Ayman added this
+		pCard = new CardEight(cardPosition);
+		break;
 
 		//================================================================//
 
